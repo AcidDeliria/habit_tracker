@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10pt;
+}
+
+.container {
+    height: auto;
+    width: 600px;
+    /* background-color: dodgerblue; */
+    margin: 25px;
+}
+
+.header {
+    width: 600px;
+    height: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background: url(./assets/headerimage.png);
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.ib {
+    display: inline-block;
+}
+
+li {
+    list-style-type: none;
+}
+
+.habitname {
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 25px;
+    max-width: 250px;
+    min-width: 100px;
+    background-color: aqua;
+    margin-right: 10px;
+}
+
+p {
+    width: auto;
+    text-align: center;
+}
+
+.delete {
+    margin-left: 20px;
+    margin-right: 15px;
+}
+
+button {
+    background-color: #E7E7E7;
+    border-radius: 25px;
+    margin-right: 10px;
+    border: none;
+    padding: 5px 20px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+/* button:hover {
+    background-color: #CECECE;
+}
+
+button:active {
+    background-color: aqua;
+}
+
+button:focus {
+    background-color: aqua;
+}  */
+
+/* .btntxt {
+    font-weight: 500;
+    font-size: 8px;
+}
+
+input[type='checkbox'] {
+  display:none
+}  
+
+input[type='checkbox']:checked {
+    background-color:blue;
+}
+
+.my-div {
+    background-color:#E7E7E7;
+    padding: 5px 20px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    font-weight: 500;
+    font-size: 10px;
+    margin-left: 5px;
+} 
+/* 
+#activate-div1:checked ~ label .my-div1{
+    background-color:aqua;
+}
+
+#activate-div2:checked ~ label .my-div2{
+    background-color:aqua;
+}
+
+#activate-div3:checked ~ label .my-div3{
+    background-color:aqua;
+}
+
+#activate-div4:checked ~ label .my-div4{
+    background-color:aqua;
+}
+
+#activate-div5:checked ~ label .my-div5{
+    background-color:aqua;
+}
+
+#activate-div6:checked ~ label .my-div6{
+    background-color:aqua;
+}
+
+#activate-div7:checked ~ label .my-div7{
+    background-color:aqua;
+} */
+
+
+.row {
+    background-color: #F6F5F5;
+    border-radius: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjust selector to only apply to checked input */
+.blue input[type='checkbox']:checked { 
+    background-color: aqua;
+}
