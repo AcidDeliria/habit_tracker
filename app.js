@@ -1,4 +1,4 @@
-var dayButtons = [].slice.call(document.querySelectorAll('.day-button'));
+// var dayButtons = [].slice.call(document.querySelectorAll('.day-button'));
 const habit = document.getElementById("habit-name");
 const trash = document.querySelector("#trash");
 const list = document.getElementById("container1");
@@ -15,25 +15,39 @@ dateElement.innerHTML = today.toLocaleDateString("en-US", options)
 
 // color coding buttons
 
-dayButtons.forEach(button => button.addEventListener(('click'), function () {
-  if (button.classList.contains('selected')) {
-        button.classList.remove('selected')
+// dayButtons.forEach(button => button.addEventListener(('click'), function () {
+//   if (button.classList.contains('selected')) {
+//         button.classList.remove('selected')
+//       } else {
+//       button.classList.add('selected')
+//   }
+// }))
+document.addEventListener('click', function (event){
+const element=event.target;
+if (element.classList.contains('day-button')) {
+    if (element.classList.contains('selected')) {
+        element.classList.remove('selected')
       } else {
-      button.classList.add('selected')
+      element.classList.add('selected')
   }
-}))
-
+    
+}
+})
 // Function add Habit
 
-document.getElementById('addButton').addEventListener('mouseup', function addHabit(task){
-
-    const row = `
+document.getElementById('addButton').addEventListener('click', function (){
+    const inputText=document.getElementById('formfield').value;
+    if (inputText!='') {
+        
+        const row = `
         <div class="row row-wrapper">
-            <i id="trash" class="far fa-trash-alt"></i>
+            <button class="removebutton" onclick="remover(this)">
+                <i id="trash" class="far fa-trash-alt"></i>
+            </button>
 
-            <div class="habitname ib"><p>${task}</p></div>
+            <div class="habitname ib"><p>${inputText}</p></div>
 
-            <div class="row">
+            <div class="row  row-yellow">
                 <button class="day-button">Mon</button>
                 <button class="day-button">Tues</button>
                 <button class="day-button">Wed</button>
@@ -46,7 +60,18 @@ document.getElementById('addButton').addEventListener('mouseup', function addHab
         `
     const position = "beforeEnd"
     list.insertAdjacentHTML(position, row)
+    document.getElementById('formfield').value='';      
+    }
+    else{
+        alert('Please Insert Habit Name');
+    }
+  
 })
+function remover(element) {
+    element.parentElement.remove();
+
+    
+}
 
 // document.addEventListener("keyup", function(event){
 //     if(event.keyCode == 13) {
