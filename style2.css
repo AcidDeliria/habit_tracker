@@ -62,16 +62,18 @@ button {
     margin-left: 20px;
     border: none;
     padding: 8px 17px;
-    min-width: 70px;
     text-decoration: none;
     transition-duration: 0.4s;
     justify-items: flex-end;
     font-size: 8pt;
 }
+
+.day-button {
+    min-width: 70px;
+}
 .removebutton {
     background-color: transparent;
-    width: fit-content;
-    padding: 0px;
+    padding: 5px;
     margin: 0px;
 }
 
@@ -79,11 +81,12 @@ button {
     position: relative;
     padding: 8px 20px;
     border-radius: 25px;
-    width: 200px;
-    text-align: center;
+    min-width: 100px;
+    max-width: 250px;
     background-color: yellow;
     margin-right: 10px;
     margin-left: 20px;
+    word-wrap: break-word;
 }
 
 label {
@@ -139,6 +142,7 @@ input[type=text], select {
 
 #trash {
     transition-duration: 0.2s;
+    font-size: 11pt;
 }
 
 #trash:hover {
@@ -157,3 +161,6 @@ input[type=text], select {
     background: yellow;
   }
 
+.row-green .selected {
+    background: green;
+}
