@@ -4,6 +4,20 @@ const list = document.getElementById("container1");
 const addButton = document.getElementById(".add-btn")
 const dateElement = document.getElementById("date");
 const task = formfield.value;
+const alertPopup = document.getElementById('alertmain')
+const closeAlert = document.getElementById('closebtn')
+
+closeAlert.addEventListener('click' , removeAlert)
+
+function removeAlert() {
+    alertPopup.style.opacity = '0%';
+    alertPopup.classList.add('dis')
+}
+
+function addAlert () {
+    alertPopup.style.opacity = '100%';
+    alertPopup.classList.remove('dis')
+}
 
 //Date Element
 
@@ -55,7 +69,7 @@ document.getElementById('addButton').addEventListener('click', function (){
     document.getElementById('formfield').value='';      
     }
     else{
-        alert('Please Insert Habit Name');
+        addAlert();
     }
   
 })
@@ -73,3 +87,4 @@ function remover(element) {
 //         }
 //     }
 // })
+
