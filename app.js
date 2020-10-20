@@ -12,12 +12,10 @@ const closeAlert = document.getElementById('closebtn')
 closeAlert.addEventListener('click' , removeAlert)
 
 function removeAlert() {
-    alertPopup.style.opacity = '0%';
     alertPopup.classList.add('dis')
 }
 
 function addAlert () {
-    alertPopup.style.opacity = '100%';
     alertPopup.classList.remove('dis')
 }
 
