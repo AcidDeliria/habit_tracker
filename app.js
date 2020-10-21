@@ -1,9 +1,23 @@
 const habit = document.getElementById("habit-name");
 const trash = document.querySelector("#trash");
 const list = document.getElementById("container1");
-const addButton = document.getElementById(".add-btn")
+const addButton = document.getElementById("addButton")
 const dateElement = document.getElementById("date");
 const task = formfield.value;
+const alertPopup = document.getElementById('alertmain')
+const closeAlert = document.getElementById('closebtn')
+
+//No habit text alert popup function
+
+closeAlert.addEventListener('click' , removeAlert)
+
+function removeAlert() {
+    alertPopup.classList.add('dis')
+}
+
+function addAlert () {
+    alertPopup.classList.remove('dis')
+}
 
 //Date Element
 
@@ -27,7 +41,10 @@ if (element.classList.contains('day-button')) {
 })
 // Function add Habit
 
-document.getElementById('addButton').addEventListener('click', function (){
+addButton.addEventListener('click', addRow)
+
+function addRow(event) {
+    event.preventDefault()
     const inputText=document.getElementById('formfield').value;
     if (inputText!='') {
         
@@ -55,21 +72,20 @@ document.getElementById('addButton').addEventListener('click', function (){
     document.getElementById('formfield').value='';      
     }
     else{
-        alert('Please Insert Habit Name');
+        addAlert();
     }
   
-})
-function remover(element) {
-    element.parentElement.remove();
-
-    
 }
 
-// document.addEventListener("keyup", function(event){
-//     if(event.keyCode == 13) {
+//hit enter insead of add btn
 
-//         if(task) {
+document.addEventListener('keypress', function(enter) {
+    if (enter.keyCode === 13 || enter.which === 13) {
+      addRow(event)
+    };
+  });
 
-//         }
-//     }
-// })
+  //remove button
+function remover(element) {
+    element.parentElement.remove();
+}
