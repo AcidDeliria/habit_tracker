@@ -161,6 +161,9 @@ input[type=text], select {
 .row-yellow .selected {
     background: yellow;
   }
+.d-inline-block {
+    display: inline-block;
+}
 
 .row-green .selected {
     background: green;
