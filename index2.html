@@ -40,9 +40,21 @@
     </div>
     <div class="row add-habit">
         <form>
-            <label for="form">Add New Habit</label>
-            <input id="formfield" class="form" type="text" id="habit-name"  placeholder="Habit Name">
-            <input id="addButton" class="add-btn" type="button" value="+">
+
+            <span class="d-inline-block">
+                <div>
+                    <label for="formfield">Habit Name</label>
+                    <input id="formfield" class="form" type="text" value="">
+                </div>
+                <div>
+                    <label for="habit-color">Habit Color</label>
+                    <input type="color"  id="habit-color" class="form">
+                </div>
+            </span>
+            <span class="d-inline-block">
+                <input id="addButton" class="add-btn" type="button" value="+">
+            </span>
+            
         </form>
         
     <div id="alertmain" class="alertpopup dis">
