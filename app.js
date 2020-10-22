@@ -6,7 +6,12 @@ const dateElement = document.getElementById("date");
 const task = formfield.value;
 const alertPopup = document.getElementById('alertmain')
 const closeAlert = document.getElementById('closebtn')
-// let colorChoice = document.getElementById('colorMain').value;
+let colorChoice = document.getElementById('habit-color').value
+
+document.getElementById("habit-color").onchange = function() {
+    backHEX = this.value;
+    colorChoice = backHEX;
+  }
 
 //No habit text alert popup function
 
@@ -32,20 +37,31 @@ dateElement.innerHTML = today.toLocaleDateString("en-US", options)
 document.addEventListener('click', function (event){
 const element=event.target;
 if (element.classList.contains('day-button')) {
+    element.style.backgroundColor = colorChoice
     if (element.classList.contains('selected')) {
         element.classList.remove('selected')
       } else {
       element.classList.add('selected')
-  }
-    
-}
+    //   element.style.backgroundColor = element.parentNode.id;
+    }
 })
+
+
+// document.addEventListener('click', function (event){
+//     const element=event.target;
+//     if (element.classList.contains('day-button')) {
+//         if (element.hasAttribute('style', 'background-color=')) {
+//             element.setAttribute('style', 'background-color=')
+//           } else {
+//           element.setAttribute('style', 'background-color='+colorChoice)
+//       }
+//     }
+//     })
 // Function add Habit
 
 addButton.addEventListener('click', addRow)
 
 function addRow(event) {
-    event.preventDefault()
     const inputText=document.getElementById('formfield').value;
     if (inputText!='') {
         
@@ -55,9 +71,9 @@ function addRow(event) {
                 <i id="trash" class="far fa-trash-alt"></i>
             </button>
 
-            <div class="habitname ib"><p>${inputText}</p></div>
+            <div class="habitname ib"  style = background-color:${colorChoice}><p>${inputText}</p></div>
 
-            <div class="row row-yellow">
+            <div class="row row-yellow" id = ${colorChoice}>
                 <button class="day-button">Mon</button>
                 <button class="day-button">Tues</button>
                 <button class="day-button">Wed</button>
@@ -92,8 +108,4 @@ function remover(element) {
 }
  //color updater
 
-//  function colorUpdate() {
-//      document.addEventListener('click', function(){
-//          colorChoice = colorChoice.value
-//      })
-//  }
+ // Pebo was here xD
