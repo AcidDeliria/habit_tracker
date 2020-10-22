@@ -6,6 +6,7 @@ const dateElement = document.getElementById("date");
 const task = formfield.value;
 const alertPopup = document.getElementById('alertmain')
 const closeAlert = document.getElementById('closebtn')
+// let colorChoice = document.getElementById('colorMain').value;
 
 //No habit text alert popup function
 
@@ -89,3 +90,10 @@ document.addEventListener('keypress', function(enter) {
 function remover(element) {
     element.parentElement.remove();
 }
+ //color updater
+
+//  function colorUpdate() {
+//      document.addEventListener('click', function(){
+//          colorChoice = colorChoice.value
+//      })
+//  }
