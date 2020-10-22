@@ -146,6 +146,8 @@ input[type=text], select {
     font-size: 11pt;
 }
 
+/* Trash button */
+
 #trash:hover {
     color: red;
     font-size: 15pt;
@@ -157,6 +159,8 @@ input[type=text], select {
     transform: rotate(20deg);
     text-decoration: line-through;
 }
+
+/* selectors */
 
 .row-yellow .selected {
     background: yellow;
