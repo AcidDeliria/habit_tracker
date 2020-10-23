@@ -21,7 +21,7 @@ function removeAlert() {
     alertPopup.classList.add('dis')
 }
 
-function addAlert () {
+function addAlert() {
     alertPopup.classList.remove('dis')
 }
 
