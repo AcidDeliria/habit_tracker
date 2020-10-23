@@ -11,10 +11,14 @@ body {
     width: auto;
 }
 
+/* Main div holding all the elements, centered elements here */
+
 .container {
     margin: 25px auto;
     width: 900px;
 }
+
+/* Header CSS */
 
 .header {
     width: 900px;
@@ -36,24 +40,7 @@ body {
     text-shadow: 2px 2px #372a3b;
 }
 
-.f {
-    display: flex;
-}
-
-.listkey {
-    align-items: flex-end;
-    justify-content: space-around;
-    width: 900px;
-    margin: 25px auto;
-}
-
-.listkey p {
-    font-weight: 200;
-}
-
-h2 {
-    color: #372a3b;
-}
+/* Week Buttons */
 
 button {
     background-color: #E7E7E7;
@@ -71,11 +58,16 @@ button {
 .day-button {
     min-width: 70px;
 }
+
+/* Trash Buttons */
+
 .removebutton {
     background-color: transparent;
     padding: 5px;
     margin: 0px;
 }
+
+/* Habit box that shows the name with color background */
 
 .habitname {
     position: relative;
@@ -84,15 +76,20 @@ button {
     border-radius: 25px;
     min-width: 100px;
     max-width: 250px;
-    background-color: yellow;
     margin-right: 10px;
     margin-left: 20px;
     word-wrap: break-word;
+    border: 1px solid #ccc;
+    text-shadow: 2px 2px 3px #ffffff;
 }
+
+/* sets the margin for the add new habit and pick a color text */
 
 label {
     margin-right: 10px;
 }
+
+/* CSS to control the placement of the habit tracking buttons */
 
 .row {
     display: flex;
@@ -102,9 +99,11 @@ label {
     align-items: center;
   }
 
-.add-habit {
+/* .add-habit {
     justify-content: center;
-}
+} */
+
+/* Form Fill CSS */
 
 input[type=text], select {
     width: 250px;
@@ -115,6 +114,8 @@ input[type=text], select {
     border-radius: 20px;
     box-sizing: border-box;
 }
+
+/* Add Button Styling */
 
 .add-btn {
     width: 60px;
@@ -141,12 +142,12 @@ input[type=text], select {
     color: white;
 }
 
+/* Trash button */
+
 #trash {
     transition-duration: 0.2s;
     font-size: 11pt;
 }
-
-/* Trash button */
 
 #trash:hover {
     color: red;
@@ -160,22 +161,20 @@ input[type=text], select {
     text-decoration: line-through;
 }
 
-/* selectors */
+/* selectors testing */
 
 .row-yellow .selected {
-    background: yellow;
+    
   }
-.d-inline-block {
-    display: inline-block;
-}
 
+/* 
 .row-green .selected {
     background: green;
 }
 
 .row-blue .selected {
     background: blue;
-}
+} */
 
 /* Alert Popup */
 
@@ -217,4 +216,12 @@ input[type=text], select {
 #closebtn:hover {
     background-color: #fee3d8;
     color: #372A3B;
+}
+
+.white {
+    color: #E7E7E7;
+}
+
+.d-inline-block {
+    display: inline-block;
 }
