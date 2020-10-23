@@ -1,9 +1,7 @@
-const habit = document.getElementById("habit-name");
 const trash = document.querySelector("#trash");
 const list = document.getElementById("container1");
 const addButton = document.getElementById("addButton")
 const dateElement = document.getElementById("date");
-const task = formfield.value;
 const alertPopup = document.getElementById('alertmain')
 const closeAlert = document.getElementById('closebtn')
 let colorChoice = document.getElementById('habit-color').value
@@ -11,7 +9,9 @@ let colorChoice = document.getElementById('habit-color').value
 document.getElementById("habit-color").onchange = function() {
     backHEX = this.value;
     colorChoice = backHEX;
-  }
+}
+
+localStorage.clear()
 
 //No habit text alert popup function
 
@@ -37,27 +37,16 @@ dateElement.innerHTML = today.toLocaleDateString("en-US", options)
 document.addEventListener('click', function (event){
 const element=event.target;
 if (element.classList.contains('day-button')) {
-    element.style.backgroundColor = colorChoice
+    element.style.backgroundColor = element.parentNode.id;
     if (element.classList.contains('selected')) {
         element.classList.remove('selected')
+        element.style.backgroundColor = "#E7E7E7";
       } else {
       element.classList.add('selected')
-    //   element.style.backgroundColor = element.parentNode.id;
+      element.style.backgroundColor = element.parentNode.id;
     }
-})
+}})
 
-
-// document.addEventListener('click', function (event){
-//     const element=event.target;
-//     if (element.classList.contains('day-button')) {
-//         if (element.hasAttribute('style', 'background-color=')) {
-//             element.setAttribute('style', 'background-color=')
-//           } else {
-//           element.setAttribute('style', 'background-color='+colorChoice)
-//       }
-//     }
-//     })
-// Function add Habit
 
 addButton.addEventListener('click', addRow)
 
@@ -65,7 +54,9 @@ function addRow(event) {
     const inputText=document.getElementById('formfield').value;
     if (inputText!='') {
         
-        const row = `
+        const row = 
+        `
+
         <div class="row row-wrapper">
             <button class="removebutton" onclick="remover(this)">
                 <i id="trash" class="far fa-trash-alt"></i>
@@ -82,7 +73,8 @@ function addRow(event) {
                 <button class="day-button">Sat</button>
                 <button class="day-button">Sun</button>
             </div>
-        </div>   
+        </div>  
+         
         `
     const position = "beforeEnd"
     list.insertAdjacentHTML(position, row)
@@ -106,6 +98,3 @@ document.addEventListener('keypress', function(enter) {
 function remover(element) {
     element.parentElement.remove();
 }
- //color updater
-
- // Pebo was here xD
