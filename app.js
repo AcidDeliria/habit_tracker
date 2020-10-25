@@ -90,6 +90,7 @@ function addRow(event) {
 
 document.addEventListener('keypress', function(enter) {
     if (enter.keyCode === 13 || enter.which === 13) {
+      event.preventDefault();
       addRow(event)
     };
   });
