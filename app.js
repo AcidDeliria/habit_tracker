@@ -1,17 +1,43 @@
-const trash = document.querySelector("#trash");
 const list = document.getElementById("container1");
 const addButton = document.getElementById("addButton")
 const dateElement = document.getElementById("date");
-const alertPopup = document.getElementById('alertmain')
-const closeAlert = document.getElementById('closebtn')
-let colorChoice = document.getElementById('habit-color').value
+const alertPopup = document.getElementById('alertmain');
+const closeAlert = document.getElementById('closebtn');
+let colorChoice = document.getElementById('habit-color').value;
 
-document.getElementById("habit-color").onchange = function() {
-    backHEX = this.value;
-    colorChoice = backHEX;
+//TODO : localStorage.clear();
+
+let HABITLIST;
+let id=0;
+const LOCAL_STORAGE_KEY = "habit"
+ HABITLIST = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []
+     id = HABITLIST.length; 
+     loadHabit(HABITLIST);
+
+
+//load items from local storage
+
+function loadHabit(array){
+        array.forEach(function(habit){
+           if(!habit.remover){
+            addRow(habit.name, habit.id, habit.color)
+           }
+        
+    })
 }
+          
+//saves items in the local storage
 
-localStorage.clear()
+function save(){
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(HABITLIST))
+    
+}
+//habit object creator
+
+function createHabit(name, colorChoice) {
+    return { name: name, id: id, color: colorChoice, remover: false }
+  }
+
 
 //No habit text alert popup function
 
@@ -21,7 +47,7 @@ function removeAlert() {
     alertPopup.classList.add('dis')
 }
 
-function addAlert() {
+function addAlert () {
     alertPopup.classList.remove('dis')
 }
 
@@ -32,9 +58,16 @@ const today = new Date();
 
 dateElement.innerHTML = today.toLocaleDateString("en-US", options)
 
+document.getElementById("habit-color").onchange = function() {
+    backHEX = this.value;
+    colorChoice = backHEX;
+};
+
+
+
 // color coding buttons
 
-document.addEventListener('click', function (event){
+document.addEventListener('click', function(event){
 const element=event.target;
 if (element.classList.contains('day-button')) {
     element.style.backgroundColor = element.parentNode.id;
@@ -48,17 +81,37 @@ if (element.classList.contains('day-button')) {
 }})
 
 
-addButton.addEventListener('click', addRow)
 
-function addRow(event) {
-    const inputText=document.getElementById('formfield').value;
+// add habit (row + push to array and local storage)
+
+ function addHabit(){
+    const habit = createHabit(document.getElementById('formfield').value, colorChoice)
+    addRow(habit.name, habit.id, habit.color);
+    HABITLIST.push(habit);
+    id++;
+     save();
+ }
+
+//add habit on click and enter
+
+ addButton.addEventListener('click', addHabit);
+ document.addEventListener('keypress', function (e){
+        if (e.key === 'Enter') {
+            e.preventDefault()
+        addHabit()
+ }})
+
+
+
+//create row and insert it to HTML
+
+function addRow(inputText, id , colorChoice) {
     if (inputText!='') {
-        
         const row = 
         `
 
         <div class="row row-wrapper">
-            <button class="removebutton" onclick="remover(this)">
+            <button class="removebutton" onclick="remover(this, ${id})">
                 <i id="trash" class="far fa-trash-alt"></i>
             </button>
 
@@ -83,19 +136,12 @@ function addRow(event) {
     else{
         addAlert();
     }
-  
+
 }
 
-//hit enter insead of add btn
-
-document.addEventListener('keypress', function(enter) {
-    if (enter.keyCode === 13 || enter.which === 13) {
-      event.preventDefault();
-      addRow(event)
-    };
-  });
-
   //remove button
-function remover(element) {
+function remover(element, id) {
     element.parentElement.remove();
+    HABITLIST[id].remover = true;
+    save();
 }
