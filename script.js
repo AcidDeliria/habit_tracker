@@ -5,51 +5,25 @@ const alertPopup = document.getElementById('alertmain');
 const closeAlert = document.getElementById('closebtn');
 let colorChoice = document.getElementById('habit-color').value;
 
-//TODO : localStorage.clear();
-
+localStorage.clear();
 let HABITLIST;
 let id=0;
-const LOCAL_STORAGE_KEY = "habit"
- HABITLIST = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []
+ HABITLIST = JSON.parse(localStorage.getItem('habit')) || []
      id = HABITLIST.length; 
-     loadHabit(HABITLIST);
-
-
-//load items from local storage
-
-function loadHabit(array){
-        array.forEach(function(habit){
-           if(!habit.remover){
-            addRow(habit.name, habit.id, habit.color)
-           }
-        
-    })
-}
-          
-//saves items in the local storage
-
-function save(){
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(HABITLIST))
+     //loadHabit(HABITLIST);
+      
+//    //function loadHabit(array){
+//        array.forEach(createHabit(){
+//            addRow
+//        }
     
-}
-//habit object creator
-
-function createHabit(name, colorChoice) {
-    return { name: name, id: id, color: colorChoice, remover: false }
-  }
-
-
+//        )
+//       }
+          
 //No habit text alert popup function
 
 closeAlert.addEventListener('click' , removeAlert)
 
-function removeAlert() {
-    alertPopup.classList.add('dis')
-}
-
-function addAlert () {
-    alertPopup.classList.remove('dis')
-}
 
 //Date Element
 
@@ -63,11 +37,9 @@ document.getElementById("habit-color").onchange = function() {
     colorChoice = backHEX;
 };
 
-
-
 // color coding buttons
 
-document.addEventListener('click', function(event){
+document.addEventListener('click', function (event){
 const element=event.target;
 if (element.classList.contains('day-button')) {
     element.style.backgroundColor = element.parentNode.id;
@@ -81,36 +53,20 @@ if (element.classList.contains('day-button')) {
 }})
 
 
+addButton.addEventListener('click', addRow)
 
-// add habit (row + push to array and local storage)
-
- function addHabit(){
-    const habit = createHabit(document.getElementById('formfield').value, colorChoice)
-    addRow(habit.name, habit.id, habit.color);
-    HABITLIST.push(habit);
-    id++;
-     save();
- }
-
-//add habit on click and enter
-
- addButton.addEventListener('click', addHabit);
- document.addEventListener('keypress', function (e){
-        if (e.key === 'Enter') {
-        addHabit()
- }})
-
-
-
-//create row and insert it to HTML
-
-function addRow(inputText, id , colorChoice) {
+function addRow() {
+    const inputText=document.getElementById('formfield').value;
     if (inputText!='') {
+        const habit = createHabit(inputText, colorChoice)
+        HABITLIST.push(habit)
+        id++;
+        
         const row = 
         `
 
         <div class="row row-wrapper">
-            <button class="removebutton" onclick="remover(this, ${id})">
+            <button class="removebutton" onclick="remover(this)">
                 <i id="trash" class="far fa-trash-alt"></i>
             </button>
 
@@ -130,17 +86,41 @@ function addRow(inputText, id , colorChoice) {
         `
     const position = "beforeEnd"
     list.insertAdjacentHTML(position, row)
+    save();
+    loadHabit();
     document.getElementById('formfield').value='';      
     }
     else{
         addAlert();
     }
-
+  
 }
+
+//hit enter insead of add btn
+
+document.addEventListener('keypress', function(enter) {
+    if (enter.keyCode === 13 || enter.which === 13) {
+      addRow()
+
+    };
+  });
 
   //remove button
-function remover(element, id) {
-    element.parentElement.remove();
-    HABITLIST[id].remover = true;
+function remover(habit) {
+    habit.parentElement.remove();
+    HABITLIST.habit.id.remover = true;
     save();
 }
+function removeAlert() {
+    alertPopup.classList.add('dis')
+}
+
+function addAlert () {
+    alertPopup.classList.remove('dis')
+}
+function save(){
+    localStorage.setItem('habit', JSON.stringify(HABITLIST))
+}
+function createHabit(name, colorChoice) {
+    return { name: name, id: id, color: colorChoice, remover: false }
+  }
