@@ -97,6 +97,7 @@ if (element.classList.contains('day-button')) {
  addButton.addEventListener('click', addHabit);
  document.addEventListener('keypress', function (e){
         if (e.key === 'Enter') {
+            e.preventDefault()
         addHabit()
  }})
 
