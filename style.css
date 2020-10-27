@@ -122,7 +122,6 @@ input[type=text], select {
     color: white;
     padding: 6px;
     margin: 10px 10px;
-    border: none;
     border-radius: 20px;
     cursor: pointer;
     font-size: 15pt;
@@ -224,4 +223,38 @@ input[type=text], select {
 
 .d-inline-block {
     display: inline-block;
+}
+
+/* local storage clear button */
+
+#clearBtn {
+    width:40px;
+    color: white;
+    padding: 6px;
+    margin: 10px -5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15pt;
+    transition-duration: 0.2s;
+    border: 3px solid #DC0000;
+    color: #DC0000;
+}
+
+#clearBtn:hover {
+    width: 80px;
+    font-size: 15pt;
+}
+
+#clearBtn:hover i {
+    display: none;
+}
+
+#clearBtn:hover:before {
+    content: 'Reset';
+}
+
+#clearBtn:active {
+    background-color: #DC0000;
+    width: 80px;
+    color: white;
 }
