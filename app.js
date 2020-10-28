@@ -4,8 +4,15 @@ const dateElement = document.getElementById("date");
 const alertPopup = document.getElementById('alertmain');
 const closeAlert = document.getElementById('closebtn');
 let colorChoice = document.getElementById('habit-color').value;
+const clearBtn = document.getElementById('clearBtn');
 
-//TODO : localStorage.clear();
+
+//remove button, and local storage clear;
+
+clearBtn.addEventListener('click',function (){
+    localStorage.clear()
+    document.getElementsByClassName('row-wrapper').remove()
+})
 
 let HABITLIST;
 let id=0;
@@ -117,7 +124,7 @@ function addRow(inputText, id , colorChoice) {
 
             <div class="habitname ib"  style = background-color:${colorChoice}><p>${inputText}</p></div>
 
-            <div class="row row-yellow" id = ${colorChoice}>
+            <div class="row" id = ${colorChoice}>
                 <button class="day-button">Mon</button>
                 <button class="day-button">Tues</button>
                 <button class="day-button">Wed</button>
