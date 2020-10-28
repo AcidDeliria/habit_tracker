@@ -159,4 +159,10 @@ input[type=text], select {
 .d-inline-block {
     display: inline-block;
 }
+#reset {
+    margin: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
 

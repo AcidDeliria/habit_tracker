@@ -68,10 +68,11 @@ document.getElementById('addButton').addEventListener('click', function (){
   
 })
 function remover(element) {
-    element.parentElement.remove();
-
-    
+    element.parentElement.remove();  
 }
+document.getElementById('reset').addEventListener('click',()=>{
+    localStorage.clear();
+})
 
 // document.addEventListener("keyup", function(event){
 //     if(event.keyCode == 13) {
