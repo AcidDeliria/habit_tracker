@@ -2,142 +2,301 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 10pt;
+    outline: none;
 }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e7e3e3, #f0eeee);
+    height: 100vh;
+}
+
+/* Main div holding all the elements, centered elements here */
 
 .container {
-    height: auto;
-    width: 600px;
-    /* background-color: dodgerblue; */
-    margin: 25px;
+    margin: 25px auto;
+    width: 900px;
 }
 
+/* Header CSS */
+
 .header {
-    width: 600px;
-    height: 80px;
+    width: 900px;
+    height: 180px;
     background-position: center;
     background-repeat: no-repeat;
     background: url(./assets/headerimage.png);
-    border-radius: 10px 10px 0px 0px;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    border-radius: 40px 40px 0px 0px;
+    display: flex;
+    margin: 25px auto;
+    box-shadow:2px 2px 12px darkgray , -2px -2px 12px white;
+
 }
 
-.ib {
-    display: inline-block;
+.headtext {
+    padding-top: 120px;
+    color: #fee3d8;
+    font-weight: 600;
+    margin-left: 22px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #372a3b;
 }
 
-li {
-    list-style-type: none;
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
 }
 
-.habitname {
-    position: relative;
-    padding: 5px 10px;
-    border-radius: 25px;
-    max-width: 250px;
-    min-width: 100px;
-    background-color: aqua;
-    margin-right: 10px;
-}
-
-p {
-    width: auto;
-    text-align: center;
-}
-
-.delete {
-    margin-left: 20px;
-    margin-right: 15px;
-}
+/* Week Buttons */
 
 button {
     background-color: #E7E7E7;
     border-radius: 25px;
-    margin-right: 10px;
+    margin-top: 15px;
+    margin-left: 20px;
     border: none;
-    padding: 5px 20px;
+    padding: 8px 17px;
     text-decoration: none;
     transition-duration: 0.4s;
+    justify-items: flex-end;
+    font-size: 8pt;
 }
 
-/* button:hover {
-    background-color: #CECECE;
+.day-button {
+    min-width: 70px;
 }
 
-button:active {
-    background-color: aqua;
+/* Trash Buttons */
+
+.removebutton {
+    background-color: transparent;
+    padding: 5px;
+    margin: 0px;
 }
 
-button:focus {
-    background-color: aqua;
-}  */
+/* Habit box that shows the name with color background */
 
-/* .btntxt {
-    font-weight: 500;
-    font-size: 8px;
+.habitname {
+    position: relative;
+    text-align: center;
+    padding: 8px 20px;
+    border-radius: 25px;
+    min-width: 100px;
+    max-width: 250px;
+    margin-right: 10px;
+    margin-left: 20px;
+    word-wrap: break-word;
+    border: 1px solid #ccc;
+    text-shadow: 2px 2px 3px #ffffff;
+    box-shadow:3px 3px 10px darkgray , -3px -3px 10px white;
 }
 
-input[type='checkbox'] {
-  display:none
-}  
+/* sets the margin for the add new habit and pick a color text */
 
-input[type='checkbox']:checked {
-    background-color:blue;
+label {
+    margin-right: 10px;
 }
 
-.my-div {
-    background-color:#E7E7E7;
-    padding: 5px 20px;
-    border-radius: 20px;
-    transition-duration: 0.4s;
-    font-weight: 500;
-    font-size: 10px;
-    margin-left: 5px;
-} 
-/* 
-#activate-div1:checked ~ label .my-div1{
-    background-color:aqua;
-}
-
-#activate-div2:checked ~ label .my-div2{
-    background-color:aqua;
-}
-
-#activate-div3:checked ~ label .my-div3{
-    background-color:aqua;
-}
-
-#activate-div4:checked ~ label .my-div4{
-    background-color:aqua;
-}
-
-#activate-div5:checked ~ label .my-div5{
-    background-color:aqua;
-}
-
-#activate-div6:checked ~ label .my-div6{
-    background-color:aqua;
-}
-
-#activate-div7:checked ~ label .my-div7{
-    background-color:aqua;
-} */
-
+/* CSS to control the placement of the habit tracking buttons */
 
 .row {
-    background-color: #F6F5F5;
-    border-radius: 60px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
     display: flex;
+    flex-direction: row;
+    margin-bottom: 14px;
     justify-content: center;
     align-items: center;
+  }
+
+/* .add-habit {
+    justify-content: center;
+} */
+
+/* Form Fill CSS */
+
+input[type=text], select {
+    width: 250px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
 }
 
-/* Adjust selector to only apply to checked input */
-.blue input[type='checkbox']:checked { 
-    background-color: aqua;
+/* Add Button Styling */
+
+.add-btn {
+    width: 60px;
+    color: white;
+    padding: 6px;
+    margin: 10px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15pt;
+    font-weight: 400;
+    transition-duration: 0.4s;
+    border: 3px solid #327234;
+    color: #327234;
+}
+
+.add-btn:hover {
+    width: 80px;
+}
+
+.add-btn:active {
+    background-color: #327234;
+    width: 70px;
+    color: white;
+}
+
+/* Trash button */
+
+#trash {
+    transition-duration: 0.2s;
+    font-size: 11pt;
+}
+
+#trash:hover {
+    color: red;
+    font-size: 15pt;
+    text-decoration: line-through;
+}
+
+#trash:active {
+    font-size: 10pt;
+    transform: rotate(20deg);
+    text-decoration: line-through;
+}
+
+/* selectors testing */
+
+.selected {
+    box-shadow:5px 5px 8px darkgray , -5px -5px 8px white;
+}
+/* 
+.row-green .selected {
+    background: green;
+}
+
+.row-blue .selected {
+    background: blue;
+} */
+
+/* Alert Popup */
+
+.dis {
+    display: none;
+}
+
+#alertmain {
+    opacity: 100%;
+    height: 200px;
+    width: 280px;
+    top: 20%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -140px;
+    position: fixed;
+    z-index: 999;
+    background-color: rgba(55, 42, 59, 0.9);
+    color: #fee3d8;
+    font-size: 17pt;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 50px;
+    border: 4px solid #fee3d8;
+}
+
+#closebtn {
+    cursor: pointer;
+    border: 2px solid #fee3d8;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 13pt;
+    transition-duration: 0.2s;
+    background: none;
+    color:#fee3d8;
+    border: 4px solid #fee3d8;
+}
+
+#closebtn:hover {
+    background-color: #fee3d8;
+    color: #372A3B;
+}
+
+.white {
+    color: #E7E7E7;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+/* local storage clear button */
+
+#clearBtn {
+    width:40px;
+    color: white;
+    padding: 6px;
+    margin: 10px -5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15pt;
+    transition-duration: 0.4s;
+    border: 3px solid #DC0000;
+    color: #DC0000;
+}
+
+/* remove all button*/
+
+#clearBtn:hover {
+    width: 80px;
+    font-size: 15pt;
+}
+
+/* #clearBtn:hover i {
+    display: none;
+} */
+
+#clearBtn:hover:before {
+    font-size: 10pt;
+    line-height: 10px;
+}
+
+#clearBtn:active {
+    background-color: #DC0000;
+    width: 80px;
+    color: white;
+}
+
+ul {
+    margin-bottom: 40px;
+    color: rgb(39, 1, 1);
+}
+
+.learning {
+    margin-bottom: 40px;
+}
+
+/* learnings page */
+
+.paul {
+    color: #5900ff;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000000;
+}
+
+.alex {
+    color: #ff00bf;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000000;
+}
+
+.hossein {
+    color: #ff5100;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000000;
 }
