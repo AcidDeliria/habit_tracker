@@ -34,12 +34,17 @@ body {
 }
 
 .headtext {
-    align-self: flex-end;
+    padding-top: 120px;
     color: #fee3d8;
     font-weight: 600;
     margin-left: 22px;
     margin-bottom: 10px;
     text-shadow: 2px 2px #372a3b;
+}
+
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
 }
 
 /* Week Buttons */
@@ -264,4 +269,34 @@ input[type=text], select {
     color: white;
 }
 
-/* background */
+ul {
+    margin-bottom: 40px;
+    color: rgb(39, 1, 1);
+}
+
+.learning {
+    margin-bottom: 40px;
+}
+
+/* learnings page */
+
+.paul {
+    color: #5900ff;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000000;
+}
+
+.alex {
+    color: #ff00bf;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000000;
+}
+
+.hossein {
+    color: #ff5100;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000000;
+}
