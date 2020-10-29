@@ -4,7 +4,19 @@ const dateElement = document.getElementById("date");
 const alertPopup = document.getElementById('alertmain');
 const closeAlert = document.getElementById('closebtn');
 let colorChoice = document.getElementById('habit-color').value;
+
 let week = [false, false, false, false, false, false, false]
+
+const clearBtn = document.getElementById('clearBtn');
+
+
+//remove button, and local storage clear;
+
+clearBtn.addEventListener('click',function (){
+    localStorage.clear()
+    document.getElementsByClassName('row-wrapper').remove()
+})
+
 
 let HABITLIST;
 let id=0;
@@ -135,6 +147,7 @@ function addRow(inputText, id , colorChoice, week) {
                 <button class="day-button ${week[4] && "selected"}" data-day="4" ${week[4] &&  `style = background-color:${colorChoice}`}>Fri</button>
                 <button class="day-button ${week[5] && "selected"}" data-day="5" ${week[5] &&  `style = background-color:${colorChoice}`}>Sat</button>
                 <button class="day-button ${week[6] && "selected"}" data-day="6" ${week[6] &&  `style = background-color:${colorChoice}`}>Sun</button>
+
             </div>
         </div>  
          

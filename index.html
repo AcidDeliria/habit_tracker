@@ -16,7 +16,8 @@
     <div id="container1" class="container">
 
         <header class="header">
-            <h1 id="date" class="headtext"></h1>
+            <a href="./learnings.html"><h1 id="date" class="headtext"></h1></a>
+
         </header>
 
         <!--<div class="row row-wrapper">
@@ -26,7 +27,7 @@
            
             <div class="habitname ib" style= background-color:#fee3d8; ><p>Example Habit</p></div>
 
-            <div class="row row-yellow" id="#fee3d8">
+            <div class="row" id="#fee3d8">
               <button class="day-button">Mon</button>
               <button class="day-button">Tues</button>
               <button class="day-button">Wed</button>
@@ -47,13 +48,16 @@
                     <input id="formfield" class="form" type="text" value="" placeholder="Habit Name">
                 </div>
                 <div>
-                    <label for="habit-color">Pick A Color</label>
-                    <input type="color"  id="habit-color" class="form" value="#fee3d8">
+                    <label for="habit-color">Pick A Color</label> 
+                    <input type="color"  id="habit-color" class="form" value="#a3ff8a">
                 </div>
             </span>
             <span class="d-inline-block">
                 <input id="addButton" class="add-btn" type="button" value="+">
             </span>
+            <button id="clearBtn">
+                <i class="fas fa-recycle"></i>
+            </button>
             
         </form>
         
@@ -61,8 +65,10 @@
         <div class="message">
             <p>Please Include <br>a Habit Name</p>
             <button id="closebtn">&times;</button>
+            
         </div>
     </div>
+
 
 </body>
 </html>

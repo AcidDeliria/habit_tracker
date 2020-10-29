@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #F6F5F5;
-    width: auto;
+    background: linear-gradient(135deg, #e7e3e3, #f0eeee);
+    height: 100vh;
 }
 
 /* Main div holding all the elements, centered elements here */
@@ -29,15 +29,22 @@ body {
     border-radius: 40px 40px 0px 0px;
     display: flex;
     margin: 25px auto;
+    box-shadow:2px 2px 12px darkgray , -2px -2px 12px white;
+
 }
 
 .headtext {
-    align-self: flex-end;
+    padding-top: 120px;
     color: #fee3d8;
     font-weight: 600;
     margin-left: 22px;
     margin-bottom: 10px;
     text-shadow: 2px 2px #372a3b;
+}
+
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
 }
 
 /* Week Buttons */
@@ -81,6 +88,7 @@ button {
     word-wrap: break-word;
     border: 1px solid #ccc;
     text-shadow: 2px 2px 3px #ffffff;
+    box-shadow:3px 3px 10px darkgray , -3px -3px 10px white;
 }
 
 /* sets the margin for the add new habit and pick a color text */
@@ -122,7 +130,6 @@ input[type=text], select {
     color: white;
     padding: 6px;
     margin: 10px 10px;
-    border: none;
     border-radius: 20px;
     cursor: pointer;
     font-size: 15pt;
@@ -163,10 +170,9 @@ input[type=text], select {
 
 /* selectors testing */
 
-.row-yellow .selected {
-    
-  }
-
+.selected {
+    box-shadow:5px 5px 8px darkgray , -5px -5px 8px white;
+}
 /* 
 .row-green .selected {
     background: green;
@@ -224,4 +230,73 @@ input[type=text], select {
 
 .d-inline-block {
     display: inline-block;
+}
+
+/* local storage clear button */
+
+#clearBtn {
+    width:40px;
+    color: white;
+    padding: 6px;
+    margin: 10px -5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15pt;
+    transition-duration: 0.4s;
+    border: 3px solid #DC0000;
+    color: #DC0000;
+}
+
+/* remove all button*/
+
+#clearBtn:hover {
+    width: 80px;
+    font-size: 15pt;
+}
+
+/* #clearBtn:hover i {
+    display: none;
+} */
+
+#clearBtn:hover:before {
+    font-size: 10pt;
+    line-height: 10px;
+}
+
+#clearBtn:active {
+    background-color: #DC0000;
+    width: 80px;
+    color: white;
+}
+
+ul {
+    margin-bottom: 40px;
+    color: rgb(39, 1, 1);
+}
+
+.learning {
+    margin-bottom: 40px;
+}
+
+/* learnings page */
+
+.paul {
+    color: #5900ff;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000000;
+}
+
+.alex {
+    color: #ff00bf;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000000;
+}
+
+.hossein {
+    color: #ff5100;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px #000000;
 }
